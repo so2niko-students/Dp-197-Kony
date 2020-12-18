@@ -1,15 +1,15 @@
 import { getUser } from './service.js';
+import { getCompatibility } from './table.js';
 
-getUser(setUser);
-getUser(setUser);
+getUser(setUser, '?gender=female');
+getUser(setUser, '?gender=male');
 
 function setUser(user){
     users.push(user);
-    console.log(users);
-
-    // images[0].src = user.picture.large;
-
-    users.forEach(({ picture }, i) => images[i].src = picture.large);
+    if(users.length == 2){
+        users.forEach(({ picture }, i) => images[i].src = picture.large);
+        console.log(getCompatibility(users));
+    }
 }
 
 const users = [];
