@@ -2,15 +2,19 @@ const table = ['91%','81%','72%','81%','97%','84%','83%','76%','92%','82%','82%'
 
 const zodiacs = ['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'];
 
-function getZodiac(user){
+const heartRange = {
+    '1': [60, 69],
+    '2': [70, 79],
+    '3': [80, 89],
+    '4': [90, 99],
+    '5': [100, 100]
+}
+
+export function getZodiac(user){
     // 1993-07-20T09:44:18.674Z
     const dob = new Date(user.dob.date);
     const month = dob.getMonth();
-    return {
-        name : zodiacs[month],
-        id : month,
-        gender : user.gender
-    };
+    return  zodiacs[month];
 }
 
 export function getCompatibility(users){
@@ -18,13 +22,24 @@ export function getCompatibility(users){
         male : 'x',
         female : 'y'
     };
-    const zodiacs = users.map(getZodiac).reduce((acc, el) => {
+    const zodiacs = users.reduce((acc, el) => {
         console.log(el);
-        acc[xy[el.gender]] = el.id;
+        acc[xy[el.gender]] = new Date(el.dob.date).getMonth();
         return acc;
     },{});
 
     const tableId = zodiacs.y * 12 + zodiacs.x;
-
+    console.log(zodiacs)
     return table[tableId];
+};
+export function checkCompatibility( users, heartsNumber){
+    let compatibility = getCompatibility(users);
+
+    compatibility = Number(compatibility.split('').splice(0,compatibility.length-1).join(''));
+    const range = heartRange[heartsNumber];
+    if (compatibility >= range[0] && compatibility <= range[1]) {
+        return `<h2>Вы угадали!<\h2><p><h3>Совместимость пары ${compatibility}%.<\h3><\p>`
+    } else {
+        return `<h2>Вы не угадали!<\h2><p><h3>Совместимость пары ${compatibility}%.<\h3><\p>`
+    }
 }

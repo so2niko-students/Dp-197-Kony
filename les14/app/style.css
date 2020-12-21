@@ -1,0 +1,159 @@
+body, head{
+    padding: 0;
+    margin: 0;
+}
+.main.background {
+    background-image: url("../img/background.jpg");
+    background-attachment: fixed;
+    height: 100vh;
+}
+.wrapper.main-bg:before{
+    background-image: url("../img/background.jpg");
+}
+.wrapper {
+    position: relative;
+    width: 50%;
+    height: 80vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    z-index: 30;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+.background
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.main-bg
+{
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 100px;
+    width: 70%;
+    height: 80vh;
+    box-sizing: border-box;
+    box-shadow: -2px 0px 10px 2px #00000061;
+}
+.main-bg:before {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    z-index: 10;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+.title{
+    font-family: "Book Antiqua";
+    text-align: center;
+}
+h2, h3{
+    color: white;
+}
+.rating-area {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 25px;
+
+}
+label{
+    display: flex!important;
+    justify-content: center;
+}
+.rating-area:not(:checked) > input {
+    display: none;
+}
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 50px;
+    line-height: 50px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+    content: '♥';
+}
+.rating-area > input:checked ~ label {
+    color: #ff0000;
+    text-shadow: 1px 1px #f13131;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+    color: #ff0000;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: #ff0000;
+    text-shadow: 1px 1px #da2036;
+}
+.rate-area > label:active {
+    position: relative;
+}
+#resultBlock{
+
+}
+.images{
+    display: flex;
+    min-height: 250px;
+
+}
+img{
+    width: 200px;
+    margin: 20px;
+
+}
+.imgWrapper{
+    position: relative;
+}
+.zodiac{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+}
+#newCouple{
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    transition: 1s;
+    border: none;
+}
+#newCouple:hover {background-position: right center;}
