@@ -2,7 +2,7 @@ function getLocation(){
     fetch('https://api.ipify.org')
         .then(r => r.text())
         // .then(d => fetch(`https://ipwhois.app/json/${d}`))
-        .then(d => fetch(`http://ip-api.com/json/${d}`))
+        .then(d => fetch(`https://ip-api.com/json/${d}`))
         .then(r => r.json())
         .then(d => {
             initMap(d);
