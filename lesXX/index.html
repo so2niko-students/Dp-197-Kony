@@ -6,28 +6,12 @@
     <title>Get Location</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu8nS6IJpV9WVbUcaGSXfO_OeePipxyMI&callback=initMap">
-</script>
-    <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 500px;
-      }
-
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu8nS6IJpV9WVbUcaGSXfO_OeePipxyMI&callback=initMap">
+    </script>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <button class="btn-get-loc">Get Location</button>
-    <h3 class="info-loc"></h3>
-    <div id="map"></div>
+    <div id="map" class="hide"></div>
     <script src="./main.js"></script>
 </body>
 </html>

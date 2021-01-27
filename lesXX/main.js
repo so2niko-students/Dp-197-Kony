@@ -1,4 +1,4 @@
-document.querySelector('.btn-get-loc').addEventListener('click', () => {
+function getLocation(){
     fetch('https://api.ipify.org')
         .then(r => r.text())
         .then(d => fetch(`https://ipwhois.app/json/${d}`))
@@ -7,16 +7,23 @@ document.querySelector('.btn-get-loc').addEventListener('click', () => {
             initMap(d);
             console.log(d);
         });
-});
+        //http://ip-api.com/json/24.48.0.1
+}
+
 
 function initMap({ latitude, longitude }) {
+    const mapHtml = document.querySelector("#map");
     const loc = { lat: +latitude, lng: +longitude };
-    const map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(mapHtml, {
         center: loc,
-        zoom: 18,
+        zoom: 15,
     });
     const marker = new google.maps.Marker({
         position: loc,
         map: map,
-      });
+    });
+
+    mapHtml.classList.remove('hide');
 }
+
+getLocation();

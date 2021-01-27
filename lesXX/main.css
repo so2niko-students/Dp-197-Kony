@@ -1,0 +1,7 @@
+#map {
+    height: 500px;
+}
+
+#map.hide{
+    height: 0;
+}
