@@ -1,7 +1,8 @@
 function getLocation(){
     fetch('https://api.ipify.org')
         .then(r => r.text())
-        .then(d => fetch(`https://ipwhois.app/json/${d}`))
+        // .then(d => fetch(`https://ipwhois.app/json/${d}`))
+        .then(d => fetch(`http://ip-api.com/json/${d}`))
         .then(r => r.json())
         .then(d => {
             initMap(d);
@@ -11,9 +12,11 @@ function getLocation(){
 }
 
 
-function initMap({ latitude, longitude }) {
+function initMap(/*{ latitude, longitude }*/{ lat, lon }) {
     const mapHtml = document.querySelector("#map");
-    const loc = { lat: +latitude, lng: +longitude };
+    // const loc = { lat: +latitude, lng: +longitude };
+    const loc = { lat: +lat, lng: +lon };
+    //https://cache.ip-api.com/35.046,48.4735,10
     const map = new google.maps.Map(mapHtml, {
         center: loc,
         zoom: 15,
