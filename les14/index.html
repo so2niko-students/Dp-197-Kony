@@ -3,13 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app/style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="images">
-        <img src="" alt="">
-        <img src="" alt="">
-    </div>
+   <div class="main background">
+       <div class="wrapper main-bg">
+           <div class="content">
+               <div>
+                   <h2 class="title">Угадай совместимость пары.</h2>
+                   <h3 class="title">Жми на сердечки и получай результат!</h3>
+               </div>
+               <div class="images">
+                   <div class="imgWrapper">
+                       <img src="" alt="">
+                       <span class="zodiac"></span>
+                   </div>
+                   <div class="imgWrapper">
+                       <img src="" alt="">
+                       <span class="zodiac"></span>
+                   </div>
+               </div>
+               <div class="rating-area" id="ratingWrapper">
+                   <input type="radio" id="star-5" name="rating" value="5">
+                   <label for="star-5" title="100%"></label>
+                   <input type="radio" id="star-4" name="rating" value="4">
+                   <label for="star-4" title="90% - 99%"></label>
+                   <input type="radio" id="star-3" name="rating" value="3">
+                   <label for="star-3" title="80% - 89%"></label>
+                   <input type="radio" id="star-2" name="rating" value="2">
+                   <label for="star-2" title="70% - 79%"></label>
+                   <input type="radio" id="star-1" name="rating" value="1">
+                   <label for="star-1" title="60% - 69%"></label>
+               </div>
+               <div id="resultBlock" class="title"></div>
+               <button type="button" id="newCouple"> Новая пара </button>
+           </div>
+       </div>
+   </div>
     <script src="app/main.js" type="module"></script>
 </body>
 </html>
